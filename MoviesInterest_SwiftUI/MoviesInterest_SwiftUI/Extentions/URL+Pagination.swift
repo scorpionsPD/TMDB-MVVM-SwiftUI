@@ -14,7 +14,7 @@ extension URL {
   /// - Returns: URL with appended page query item
   func appendingPage(_ page: Int?) -> Self {
     guard let page = page else {
-     // log.warning("no page element to append to URL")
+      print("no page element to append to URL")
       return self
     }
     var components = URLComponents(url: self, resolvingAgainstBaseURL: false)!

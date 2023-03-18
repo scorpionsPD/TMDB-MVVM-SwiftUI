@@ -28,9 +28,9 @@ import Foundation
                 let paginatedMovies: MoviePaginatedList = try await movieRepository.popular(page: nextPage)
                 nextPage = paginatedMovies.page + 1
                 availableMovies = nextPage <= paginatedMovies.totalPages
-                    self.movies.append(contentsOf: paginatedMovies.results)
+                self.movies.append(contentsOf: paginatedMovies.results)
             } catch {
-              //  log.error("Error fetching movie data from repository: \(error)")
+                print("Error fetching movie data from repository: \(error)")
             }
         }
     }
@@ -40,10 +40,10 @@ import Foundation
     func paginationUpdate(movie: Movie) -> Bool {
         // check if user is starting to view the last 3 movies to fetch new movies ahead of time
         guard movies.suffix(3).contains(movie) else {
-         //   log.verbose("pagination update - not last 3 items")
+            print("pagination update - not last 3 items")
             return false
         }
-       // log.info("pagination update - getting next page of movies")
+        print("pagination update - getting next page of movies")
         return true
     }
 }

@@ -51,7 +51,6 @@ final actor TheMovieDbService: RESTService {
         guard let components = components, let requestURL = components.url else {
             throw TheMovieDbError.malformed
         }
-        //log.info("returning valid request url with parameters")
         return URLRequest(url: requestURL)
     }
     private func validate(response: URLResponse) throws {
@@ -82,7 +81,7 @@ final actor TheMovieDbService: RESTService {
         let request = try buildURLRequest(for: endpoint)
         let data: Data
         let response: URLResponse
-        //log.info("GET request to The Movie Database: \(request)")
+        print("GET request to The Movie Database: \(request)")
         // make the request
         do {
             (data, response) = try await urlSession.data(for: request)

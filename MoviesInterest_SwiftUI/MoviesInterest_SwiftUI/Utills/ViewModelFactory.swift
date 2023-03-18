@@ -18,4 +18,9 @@ class ViewModelFactory: ObservableObject {
             movieRepository: MovieRepository(service: movieDBService)
         )
     }
+    @MainActor func makeMovieDetailVM() -> DetailViewModal {
+        return DetailViewModal(
+            movieRepository: MovieRepository(service: movieDBService)
+        )
+    }
 }

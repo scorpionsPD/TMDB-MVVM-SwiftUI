@@ -49,7 +49,7 @@ extension Movie {
   /// - Returns: a string with the runtime formatted accordingly
   func formattedRuntime() -> String {
     guard let runtime = runtime else {
-     // log.info("no runtime to format")
+     print("no runtime to format")
       return ""
     }
     let formatter = DateComponentsFormatter()
@@ -68,7 +68,7 @@ extension Movie {
   /// - Returns: a URL of where to get the image
   func posterURL() -> URL? {
     guard let posterPath = poster else {
-    //  log.warning("unable to resolve posterURL - no image path")
+    print("unable to resolve posterURL - no image path")
       return nil
     }
     return URL(string: Movie.basePosterURL.appending(posterPath))
@@ -78,7 +78,7 @@ extension Movie {
   /// - Returns: a URL of where to get the image
   func backdropURL() -> URL? {
     guard let backdropPath = backdrop else {
-    //  log.warning("unable to resolve backdropURL - no image path")
+    print("unable to resolve backdropURL - no image path")
       return nil
     }
     return URL(string: Movie.baseBackdropURL.appending(backdropPath))
